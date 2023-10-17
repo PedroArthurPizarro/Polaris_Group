@@ -1,26 +1,20 @@
-/*
-function conferirLoginWhile() {
-    user = window.prompt('Digite seu usuário:');
-    senha = window.prompt('Digite sua senha:');
+var mysql = require('mysql2');
 
-    while (user == "Adri" && senha == 123) {
-        window.alert("Você será redirecionado ao seu perfil")
-    }
-}
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "phpmyadmin",
+  password: "phpmyadmin",
+  database: "polarisdb"
+});
 
-for (let i = 0; i < dados[usuario].length; i++) {
-    console.log('O usuário' + dados[usuario] + 'tem a senha' + dados[senha]);
-}
+con.connect(function(err) {
+  if (err) throw err;
+  con.query("SELECT nome, senha FROM user", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
 
-
-for (let i = 0; i < array.length; i++) {
-    const element = array[i];
-}
-
-for (let usuariosIndex = 0; usuariosIndex < array.length; usuariosIndex++) {
-    const element = array[usuariosIndex];
-}
-*/
 
 var usuariosDB = [
     { usuario: "32493282000", senha: "1234" },
